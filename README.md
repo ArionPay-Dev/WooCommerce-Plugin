@@ -79,3 +79,12 @@ Coming back from the payment page does not mark an order paid by itself. If a we
 - The plugin sends ArionPay the order total and currency, order number, the customer's email address, the return links for your shop, and an internal order reference.
 - Problems are logged under **WooCommerce > Status > Logs** with the source `arionpay`. Keys and secrets are never logged.
 - Deleting the plugin removes its settings. Notes on past orders stay.
+
+## Upgrading from the old ArionPay plugin
+
+The old plugin ("ArionPay Crypto (Universal v18)", version 18.x) and this one use the same payment method ID. Never activate both at the same time.
+
+1. Let orders that are waiting for payment through the old plugin finish first. This plugin does not complete orders that the old one started: check those in your ArionPay dashboard and complete them by hand.
+2. In **Plugins**, deactivate and delete **ArionPay Crypto (Universal v18)**.
+3. Install and activate this plugin. Your checkout title and description are kept. Enter the **API key**, **API secret** and **Webhook signing secret** again: the old plugin stored its keys under other names.
+4. In your ArionPay store settings, check that **Old ArionPay (v1) integration compatibility** is off.
